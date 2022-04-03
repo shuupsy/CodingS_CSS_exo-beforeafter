@@ -1,30 +1,33 @@
-/* exo1 */
-#exo1 {
+section {
     position: relative;
 }
 
-#exo1::before {
-    position: absolute;
-    content: '';
-    height: 2px;
-    width: 60px;
-    background-color: red;
-    bottom: 0;
-    transform-origin: left;
-    transform: scaleX(0);
-    transition: transform .3s ease-in-out;
-}
-
-#exo1:hover::before {
-    transform-origin: left;
-    transform: scaleX(1);
-}
-
-/* Exo 2 */
+#exo1,
 #exo2 {
-    position: relative;
+    padding-bottom: 0;
 }
 
+#exo3,
+#exo4 {
+    margin: 20px;
+}
+
+/* Début exo1 */
+#exo1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: red;
+    transition: width 200ms ease;
+}
+
+#exo1:hover::after {
+    width: 60px;
+}
+
+/* Début exo2 */
 #exo2::before {
     position: absolute;
     content: '';
@@ -43,16 +46,14 @@
     transform: scaleX(1);
 }
 
-/* Exo 3 */
+/* Début exo 3 */
 #exo3 {
-    position: relative;
+    width: 60px;
     background: linear-gradient(to bottom, red 0%, red 100%);
     background-position: 0 100%;
     background-repeat: repeat-x;
-    background-size: 4px 4px;
-    text-decoration: none;
-    transition: background-size 1s;
-    width: 60px;
+    background-size: 50px 2px;
+    transition: 1s ease-in;
 }
 
 #exo3:hover {
@@ -60,76 +61,41 @@
 }
 
 /* Exo 4 */
-#exo4 h1 {
-    position: absolute;
+#exo4 {
     width: 70px;
-    height: 35px;
-    text-align: center;
-    padding: 10px 10px;
-    overflow: hidden;
 }
 
-h1 span {
-    display: block;
-    background: red;
-    transition: all 0.2s;
-}
-
-h1 span:first-child,
-h1 span:nth-child(3) {
+#exo4::before {
+    content: '';
     position: absolute;
-    height: 2px;
+    width: 0%;
+    height: 0%;
+}
+
+#exo4:hover::before {
+    visibility: hidden;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
     width: 100%;
+    height: calc(100% - 2px);
+    transition: width 0.5s, height 0.5s 0.5s, visibility 10s 4s;
 }
 
-h1 span:nth-child(2),
-h1 span:last-child {
+#exo4::after {
+    content: '';
     position: absolute;
-    height: 100%;
-    width: 2px;
-}
-
-h1 span:first-child {
-    top: 0;
-    left: -100%;
-}
-
-h1 span:nth-child(2) {
-    top: -100%;
-    right: 0;
-    transition-delay: 0.2s;
-}
-
-h1 span:nth-child(3) {
-    bottom: 0;
-    right: -100%;
-    transition-delay: 0.4s;
-}
-
-h1 span:last-child {
-    bottom: -100;
-    left: 0;
-    transition-delay: 0.6s;
-}
-
-h1:hover span:first-child {
-    top: 0;
-    left: 0;
-}
-
-h1:hover span:nth-child(2) {
-    top: 0;
-    right: 0;
-}
-
-h1:hover span:nth-child(3) {
+    width: 0%;
+    height: 0%;
     bottom: 0;
     right: 0;
+    visibility: hidden;
 }
 
-h1:hover span:last-child {
-    bottom: 0;
-    left: 0;
+#exo4:hover::after {
+    visibility: visible;
+    transition: width 0.5s 1s, height 0.5s 1.5s, visibility 1s 1s;
+    border-bottom: 1px solid red;
+    border-left: 1px solid red;
+    width: 100%;
+    height: calc(100% - 2px);
 }
-
-/* Fin Exo 4 */
