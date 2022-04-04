@@ -2,15 +2,10 @@ section {
     position: relative;
 }
 
-#exo1,
+/* #exo1,
 #exo2 {
     padding-bottom: 0;
-}
-
-#exo3,
-#exo4 {
-    margin: 20px;
-}
+} */
 
 /* Début exo1 */
 #exo1::after {
@@ -28,22 +23,20 @@ section {
 }
 
 /* Début exo2 */
-#exo2::before {
-    position: absolute;
+#exo2::after {
     content: '';
-    height: 2px;
-    width: 60px;
-    background-color: red;
+    position: absolute;
+    left:30px;
     bottom: 0;
-    left: 0;
-    transform-origin: center;
-    transform: scaleX(0);
-    transition: transform .3s ease-in-out;
+    background-color: red;
+    height: 2px;
+    width: 0;
+    transition: all 0.3s ease-in-out;
 }
 
-#exo2:hover::before {
-    transform-origin: center;
-    transform: scaleX(1);
+#exo2:hover::after {
+    left: 0%;
+    width: 60px;
 }
 
 /* Début exo 3 */
